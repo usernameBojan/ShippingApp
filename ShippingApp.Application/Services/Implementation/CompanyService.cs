@@ -61,11 +61,6 @@ namespace ShippingApp.Application.Services.Implementation
                                            .FirstOrDefault(x => x.Name == companyName)
                                            ?? throw new Exception("Not Found");
 
-            if (companyRepository.Query().Any(x => x.Name == editCompany.Name))
-            {
-                throw new Exception("Company with this name already exists");
-            }
-
             editCompany.ValidateRangeValues();
 
             company.Name = editCompany.Name;
